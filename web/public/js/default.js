@@ -3,23 +3,24 @@
  */
 (function($) {
     $.updateNumber = function () {
-        $('span.update-number').on('click', function (e) {
-            e.preventDefault();
+        let updateNumber = 'span.update-number',
+            numberContainer = 'div.number';
+
+        $(updateNumber).on('click', function (event) {
+            event.preventDefault();
             $.fn.request();
         });
 
         $.fn.request = function() {
-            let self = this;
-
             $.ajax({
-               url: $('span.update-number').attr('data-url'),
+               url: $(updateNumber).attr('data-url'),
                method: 'POST',
                dataType: 'JSON',
                success: function (response) {
                    if ('status' in response &&
                        response.status === 'success' &&
                        'html' in response) {
-                        $('div.number').html(response.html);
+                        $(numberContainer).html(response.html);
                    }
                },
                error: function (xhr) {

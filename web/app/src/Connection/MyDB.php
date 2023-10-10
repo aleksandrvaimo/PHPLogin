@@ -14,7 +14,7 @@ class MyDB extends SQLite3
         $this->open($_SERVER['PWD'] . self::DATABASE_PATH);
     }
 
-    protected function getDbRequest(string $sql, array $params, bool $isNull = false): bool|array
+    protected function getDbRequest(string $sql, array $params, bool $returnFalse = false): bool|array
     {
         $statement = $this->prepare($sql);
 
@@ -23,7 +23,7 @@ class MyDB extends SQLite3
         }
 
         $result = $statement->execute();
-        $row = !$result || $isNull ? false : $result->fetchArray();
+        $row = !$result || $returnFalse ? false : $result->fetchArray();
 
         $statement->close();
 
