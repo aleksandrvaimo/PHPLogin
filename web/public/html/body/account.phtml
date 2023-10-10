@@ -1,0 +1,10 @@
+<?php
+use App\Test\Connection\RequestDB;
+use App\Test\Model\Customer;
+use App\Test\Model\Customer\Data as CustomerData;
+
+$customer = new Customer(new RequestDB, new CustomerData);
+$customer = $customer->getCustomer();
+?>
+<div class="number v-100 d-flex justify-content-center display-1"><?= $customer->getLastNumber(); ?></div>
+<div class="v-100 d-flex justify-content-center my-sm-2"><?= $customer->getUsername(); ?></div>

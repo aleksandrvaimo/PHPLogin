@@ -1,0 +1,7 @@
+<?php $page = new App\Test\Block\Page; ?>
+
+<span data-url="<?= $page->getUpdateNumberUrl(); ?>" class="btn btn-primary update-number float-start mx-1">+1</span>
+
+<script type="text/javascript">
+    new $.updateNumber();
+</script>
