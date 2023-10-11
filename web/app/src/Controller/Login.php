@@ -27,7 +27,7 @@ class Login
             $_SESSION[SessionInterface::KEY_MSG] = $_SESSION[SessionInterface::KEY_MSG] ?? self::MSG_FAIL;
         } else {
             try {
-                $this->login->getCustomer($_POST[self::KEY_USERNAME] ?? null, $_POST[self::KEY_PASSWORD] ?? null);
+                $this->login->authenticate($_POST[self::KEY_USERNAME] ?? null, $_POST[self::KEY_PASSWORD] ?? null);
             } catch (\Exception $ex) {
                 $_SESSION[SessionInterface::KEY_MSG] = $ex->getMessage();
             }

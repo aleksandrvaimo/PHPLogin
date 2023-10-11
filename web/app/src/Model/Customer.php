@@ -21,7 +21,7 @@ class Customer implements CustomerInterface
         $this->customer = $customer;
     }
 
-    public function isCustomerExists(string $username = '', string $password = ''): bool
+    public function isAuthenticatedUser(string $username = '', string $password = ''): bool
     {
         return $this->db->authenticateUser($username, $password);
     }

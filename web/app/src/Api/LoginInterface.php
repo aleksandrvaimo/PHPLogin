@@ -11,6 +11,6 @@ interface LoginInterface
     const PARAM_USERNAME = 'username';
     const PARAMS = ['username', 'password'];
 
-    public function getCustomer(string $username, string $password): void;
+    public function authenticate(string $username, string $password): void;
     public function isPostParamsExists(): bool;
 }

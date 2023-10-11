@@ -18,9 +18,9 @@ class Login implements LoginInterface
         $this->customer = $customer;
     }
 
-    public function getCustomer(string $username, string $password): void
+    public function authenticate(string $username, string $password): void
     {
-        if ($this->customer->isCustomerExists($username, $password)) {
+        if ($this->customer->isAuthenticatedUser($username, $password)) {
             $_SESSION[SessionInterface::KEY_CUSTOMER] = $this->customer->getCustomerByUsername($username);
         } else {
             $_SESSION[SessionInterface::KEY_MSG] = 'User does not exists. Please check username and password.';
