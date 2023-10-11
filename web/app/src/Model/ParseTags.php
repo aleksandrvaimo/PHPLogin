@@ -31,9 +31,9 @@ class ParseTags implements ParseTagsInterface
             return null;
         }
 
-        return [
-            $first => $this->getElementsBetweenFirstAndLastTags($first, $array)
-        ];
+        $children = $this->getElementsBetweenFirstAndLastTags($first, $array);
+
+        return empty($children) ? [$first] : [$first => $children];
     }
 
     private function getElementsBetweenFirstAndLastTags(string $first, array $array): array
